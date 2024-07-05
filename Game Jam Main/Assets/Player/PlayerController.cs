@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-            if (deltaPosition != new Vector3(0, 0, 0))
+            if (deltaPosition != new Vector3(0, 0, 0) && !Input.GetKey(KeyCode.LeftShift))
             {
                 pastPositions.Add(deltaPosition);
             }
