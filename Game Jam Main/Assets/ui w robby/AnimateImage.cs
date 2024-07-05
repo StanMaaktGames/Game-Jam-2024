@@ -34,7 +34,7 @@ public class AnimateImage : MonoBehaviour
 
             // Move the image up and down based on the amplitude
             float movement = average * sensitivity * scaleFactor;
-            rectTransform.localPosition = new Vector3(rectTransform.localPosition.x, movement -266, rectTransform.localPosition.z);
+            rectTransform.localPosition = new Vector3(rectTransform.localPosition.x, movement +75, rectTransform.localPosition.z);
         }
     }
 }

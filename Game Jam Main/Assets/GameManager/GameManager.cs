@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public List<GameObject> levels = new List<GameObject>();
     public List<Vector2> spawnPosition = new List<Vector2>();
+    public GameObject robbyText;
 
     int level = 1;
 
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("load");
         Debug.Log(levelInt);
         player.GetComponent<PlayerController>().Spawn(spawnPosition[levelInt - 1].x, spawnPosition[levelInt - 1].y);
+        robbyText.GetComponent<RobbyText>().ShowText(levelInt);
     }
 
     public void Finish()
