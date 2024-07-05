@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     Vector3 deltaPosition;
     Vector3 previousPosition;
 
+    [Header("Movement")]
+
     public float moveSpeed = 1f;
     public float coyoteSeconds = 0.1f;
     public float jumpForce = 1f;
@@ -25,6 +27,10 @@ public class PlayerController : MonoBehaviour
     [Header("UI")]
 
     public Slider reverseSlider;
+
+    [Header("Other")]
+
+    public GameObject gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -99,6 +105,10 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Collision enter");
             grounded = true;
         }
+        else if (other.gameObject.layer == 6)
+        {
+            gameManager.GetComponent<GameManager>().Finish();
+        }
     }
 
     void OnCollisionExit2D(Collision2D other)
@@ -108,5 +118,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Collision exit");
             grounded = false;
         }
+    }
+
+    public void Spawn(float spawnX, float spawnY)
+    {
+        transform.position = new Vector3(spawnX, spawnY, transform.position.z);
+        pastPositions.Clear();
     }
 }
