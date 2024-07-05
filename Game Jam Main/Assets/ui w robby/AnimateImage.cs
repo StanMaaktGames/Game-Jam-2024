@@ -18,7 +18,7 @@ public class AnimateImage : MonoBehaviour
 
     void Update()
     {
-        if (audioSource.isPlaying)
+        if (audioSource != null)
         {
             audioSource.GetOutputData(samples, 0);
             float sum = 0f;

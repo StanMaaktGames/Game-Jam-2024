@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class GameManager : MonoBehaviour
     public List<Vector2> spawnPosition = new List<Vector2>();
     public GameObject robbyText;
 
-    int level = 1;
+    public int level = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,12 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int levelInt)
     {
+        if (levelInt > levels.Count)
+        {
+            SceneManager.LoadScene("EndScreen");
+            Debug.Log("finished");
+        }
+
         foreach (GameObject unloadLevel in levels)
         {
             unloadLevel.SetActive(false);
@@ -45,6 +52,11 @@ public class GameManager : MonoBehaviour
     public void Finish()
     {
         level += 1;
+        LoadLevel(level);
+    }
+
+    public void Reset()
+    {
         LoadLevel(level);
     }
 }

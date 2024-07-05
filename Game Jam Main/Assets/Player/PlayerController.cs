@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
 
     public float moveSpeed = 1f;
-    public float coyoteSeconds = 0.1f;
     public float jumpForce = 1f;
     public float airDrag;
     public float reverseLength = 5f;
@@ -53,6 +52,11 @@ public class PlayerController : MonoBehaviour
         }
 
         reverseSlider.value = pastPositions.Count / (reverseLength * 50);
+
+        if (transform.position.y < -6f)
+        {
+            gameManager.GetComponent<GameManager>().Reset();
+        }
     }
 
     void FixedUpdate()
@@ -92,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-            if (deltaPosition != new Vector3(0, 0, 0))
+            if (deltaPosition != new Vector3(0, 0, 0) && !Input.GetKey(KeyCode.LeftShift))
             {
                 pastPositions.Add(deltaPosition);
             }
