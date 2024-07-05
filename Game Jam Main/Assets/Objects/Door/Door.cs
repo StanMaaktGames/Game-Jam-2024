@@ -45,6 +45,20 @@ public class Door : MonoBehaviour
 
     public void Load()
     {
-        doorCollider.enabled = true;
+        if (startClosed)
+        {
+            if (animator == null)
+            {
+                animator = GetComponent<Animator>();
+            }
+            animator.SetBool("open", false);
+            doorCollider.enabled = true;
+        }
+        else
+        {
+            animator.SetTrigger("startOpened");
+            animator.SetBool("open", true);
+            doorCollider.enabled = false;
+        }
     }
 }

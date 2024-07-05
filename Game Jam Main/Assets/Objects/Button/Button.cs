@@ -39,6 +39,11 @@ public class Button : MonoBehaviour
 
     public void Load()
     {
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+        Debug.Log(animator);
         animator.SetBool("pressed", false);
     }
 }

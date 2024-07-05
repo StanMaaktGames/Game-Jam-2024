@@ -735,7 +735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &262392165
 Transform:
   m_ObjectHideFlags: 0
@@ -2612,6 +2612,10 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7056637675136122763, guid: dc924d63326f53e44a0c74e69ab9ab38, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1269556374}
+    - target: {fileID: 7056637675136122763, guid: dc924d63326f53e44a0c74e69ab9ab38, type: 3}
       propertyPath: startClosed
       value: 0
       objectReference: {fileID: 0}
@@ -2623,6 +2627,11 @@ PrefabInstance:
 --- !u!4 &1269556371 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4360827204623878604, guid: dc924d63326f53e44a0c74e69ab9ab38, type: 3}
+  m_PrefabInstance: {fileID: 1269556370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1269556374 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8960634270178844170, guid: dc924d63326f53e44a0c74e69ab9ab38, type: 3}
   m_PrefabInstance: {fileID: 1269556370}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1300226745
