@@ -446,6 +446,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1332351129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &243948348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 93842483223753415, guid: dc924d63326f53e44a0c74e69ab9ab38, type: 3}
+  m_PrefabInstance: {fileID: 1269556370}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &257678389
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,7 +700,7 @@ PrefabInstance:
     - target: {fileID: 2901388167659046767, guid: a4eb10d712812a5489b2fa1eef840d64, type: 3}
       propertyPath: door
       value: 
-      objectReference: {fileID: 88658793}
+      objectReference: {fileID: 243948348}
     - target: {fileID: 2901388167659046767, guid: a4eb10d712812a5489b2fa1eef840d64, type: 3}
       propertyPath: openOnPress
       value: 0
@@ -769,7 +774,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fccd69447aeaba4cbdb0b029bf9fcd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetObjects: []
+  resetObjects:
+  - {fileID: 243948348}
+  - {fileID: 1398153162}
 --- !u!1 &274245493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2764,7 +2771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1332351129
 Transform:
   m_ObjectHideFlags: 0
@@ -2806,6 +2813,11 @@ MonoBehaviour:
   resetObjects:
   - {fileID: 88658793}
   - {fileID: 197000187}
+--- !u!1 &1398153162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7485261158909217293, guid: a4eb10d712812a5489b2fa1eef840d64, type: 3}
+  m_PrefabInstance: {fileID: 261023741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1488133040
 GameObject:
   m_ObjectHideFlags: 0
