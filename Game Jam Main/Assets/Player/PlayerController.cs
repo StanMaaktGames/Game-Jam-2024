@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     Vector3 velocity;
-    bool grounded = false;
+    public bool grounded = false;
     bool reversing = false;
     List<Vector3> pastPositions = new List<Vector3>();
 
@@ -28,17 +28,27 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity.x = Input.GetAxis("Horizontal") * moveSpeed;
-
-        if (Input.GetAxis("Vertical") > 0f && grounded)
+        if (!reversing)
         {
-            rb.AddForce(transform.up * jumpForce);
-            grounded = false;
+            velocity.x = Input.GetAxis("Horizontal") * moveSpeed;
+
+            if (Input.GetAxis("Vertical") > 0f && grounded)
+            {
+                rb.AddForce(transform.up * jumpForce);
+                grounded = false;
+            }
+
+            transform.position += velocity * Time.deltaTime;
         }
 
-        transform.position += velocity * Time.deltaTime;
-
-        if (Input.Get)
+        if (Input.GetKeyDown("space"))
+        {
+            reversing = true;
+        }
+        else if (Input.GetKeyUp("space"))
+        {
+            reversing = false;
+        }
     }
 
     void FixedUpdate()
@@ -46,7 +56,7 @@ public class PlayerController : MonoBehaviour
         if (reversing)
         {
             transform.position = pastPositions.Last();
-            pastPositions.RemoveAt(-1);
+            pastPositions.RemoveAt(pastPositions.Count - 1);
         }
         else
         {
@@ -56,7 +66,6 @@ public class PlayerController : MonoBehaviour
                 pastPositions.RemoveAt(0);
             }
         }
-        Debug.Log(pastPositions.Count);
     }
 
     void OnCollisionEnter2D(Collision2D other)
