@@ -7,6 +7,7 @@ public class Button : MonoBehaviour
     Animator animator;
 
     public GameObject door;
+    public bool openOnPress = true;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,14 @@ public class Button : MonoBehaviour
         if (other.gameObject.layer == 8)
         {
             animator.SetBool("pressed", true);
-            door.GetComponent<Door>().Open();
+            if (openOnPress)
+            {
+                door.GetComponent<Door>().Open();
+            }
+            else
+            {
+                door.GetComponent<Door>().Close();
+            }
         }
     }
 

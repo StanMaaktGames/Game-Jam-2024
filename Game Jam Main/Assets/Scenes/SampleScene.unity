@@ -655,7 +655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &262392165
 Transform:
   m_ObjectHideFlags: 0
@@ -3628,6 +3628,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7056637675136122763, guid: dc924d63326f53e44a0c74e69ab9ab38, type: 3}
+      propertyPath: startClosed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3651,7 +3655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &3347153684522539940
 GameObject:
   m_ObjectHideFlags: 0
@@ -3846,6 +3850,10 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 88658793}
+    - target: {fileID: 2901388167659046767, guid: a4eb10d712812a5489b2fa1eef840d64, type: 3}
+      propertyPath: openOnPress
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7485261158909217293, guid: a4eb10d712812a5489b2fa1eef840d64, type: 3}
       propertyPath: m_Name
       value: Button
