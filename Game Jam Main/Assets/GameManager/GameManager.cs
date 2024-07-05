@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
             unloadLevel.SetActive(false);
         }
         levels[levelInt - 1].SetActive(true);
+        levels[levelInt - 1].GetComponent<LevelManager>().Load();
         
         player.GetComponent<PlayerController>().Spawn(spawnPosition[levelInt - 1].x, spawnPosition[levelInt - 1].y);
     }
