@@ -1286,7 +1286,7 @@ MonoBehaviour:
   - {x: -9.5, y: 1}
   - {x: -9.5, y: 2.5}
   robbyText: {fileID: 3431932893712172929}
-  level: 5
+  level: 1
 --- !u!4 &317328915
 Transform:
   m_ObjectHideFlags: 0
