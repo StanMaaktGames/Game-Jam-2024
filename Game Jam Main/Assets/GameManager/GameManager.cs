@@ -47,4 +47,9 @@ public class GameManager : MonoBehaviour
         level += 1;
         LoadLevel(level);
     }
+
+    public void Reset()
+    {
+        LoadLevel(level);
+    }
 }

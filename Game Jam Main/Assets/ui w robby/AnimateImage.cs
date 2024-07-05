@@ -18,24 +18,21 @@ public class AnimateImage : MonoBehaviour
 
     void Update()
     {
-        if (audioSource.isPlaying)
+        audioSource.GetOutputData(samples, 0);
+        float sum = 0f;
+
+        // Sum the absolute values of the samples
+        for (int i = 0; i < samples.Length; i++)
         {
-            audioSource.GetOutputData(samples, 0);
-            float sum = 0f;
-
-            // Sum the absolute values of the samples
-            for (int i = 0; i < samples.Length; i++)
-            {
-                sum += Mathf.Abs(samples[i]);
-            }
-
-            // Calculate the average amplitude
-            float average = sum / samples.Length;
-
-            // Move the image up and down based on the amplitude
-            float movement = average * sensitivity * scaleFactor;
-            rectTransform.position = new Vector3(rectTransform.position.x, movement + 75, rectTransform.position.z);
+            sum += Mathf.Abs(samples[i]);
         }
+
+        // Calculate the average amplitude
+        float average = sum / samples.Length;
+
+        // Move the image up and down based on the amplitude
+        float movement = average * sensitivity * scaleFactor;
+        rectTransform.position = new Vector3(rectTransform.position.x, movement + 75, rectTransform.position.z);
     }
 }
 
