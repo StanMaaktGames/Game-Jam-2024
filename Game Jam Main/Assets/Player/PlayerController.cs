@@ -78,7 +78,10 @@ public class PlayerController : MonoBehaviour
 
 
 
-            pastPositions.Add(transform.position);
+            if (deltaPosition != new Vector3(0, 0, 0))
+            {
+                pastPositions.Add(transform.position);
+            }
             if (pastPositions.Count > reverseLength * 50)
             {
                 pastPositions.RemoveAt(0);
