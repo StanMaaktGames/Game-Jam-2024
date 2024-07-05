@@ -57,11 +57,15 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        deltaPosition = transform.position - previousPosition;
+        previousPosition = transform.position;
+
         if (reversing)
         {
+            rb.gravityScale = 0;
             if (pastPositions.Count > 0)
             {
-                transform.position = pastPositions.Last();
+                transform.position -= pastPositions.Last();
                 pastPositions.RemoveAt(pastPositions.Count - 1);
             }
             else
@@ -71,7 +75,12 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            rb.gravityScale = 3;
             velocity.x = Input.GetAxis("Horizontal") * moveSpeed;
+            if (velocity.x < 0)
+            {
+                velocity = new Vector3(0, velocity.y, velocity.z);
+            }
 
             if (Input.GetAxis("Vertical") > 0f && grounded)
             {
@@ -85,16 +94,13 @@ public class PlayerController : MonoBehaviour
 
             if (deltaPosition != new Vector3(0, 0, 0))
             {
-                pastPositions.Add(transform.position);
+                pastPositions.Add(deltaPosition);
             }
             if (pastPositions.Count > reverseLength * 50)
             {
                 pastPositions.RemoveAt(0);
             }
         }
-
-        deltaPosition = transform.position - previousPosition;
-        previousPosition = transform.position;
     }
 
     void OnCollisionEnter2D(Collision2D other)
