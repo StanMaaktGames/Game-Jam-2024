@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public List<Vector2> spawnPosition = new List<Vector2>();
     public GameObject robbyText;
 
-    int level = 1;
+    public int level = 1;
 
     // Start is called before the first frame update
     void Start()
