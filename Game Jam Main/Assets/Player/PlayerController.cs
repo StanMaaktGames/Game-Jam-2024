@@ -53,7 +53,6 @@ public class PlayerController : MonoBehaviour
         }
 
         reverseSlider.value = pastPositions.Count / (reverseLength * 50);
-        Debug.Log(pastPositions.Count);
     }
 
     void FixedUpdate()
@@ -102,7 +101,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.layer == 3 && deltaPosition.y < 0f)
         {
-            Debug.Log("Collision enter");
             grounded = true;
         }
         else if (other.gameObject.layer == 6)
@@ -115,7 +113,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.layer == 3)
         {
-            Debug.Log("Collision exit");
             grounded = false;
         }
     }
