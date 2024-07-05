@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,6 +30,12 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int levelInt)
     {
+        if (levelInt > levels.Count)
+        {
+            SceneManager.LoadScene("EndScreen");
+            Debug.Log("finished");
+        }
+
         foreach (GameObject unloadLevel in levels)
         {
             unloadLevel.SetActive(false);
