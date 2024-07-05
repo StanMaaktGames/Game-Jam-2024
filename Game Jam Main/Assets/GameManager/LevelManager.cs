@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {       
+    public List<GameObject> resetObjects = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,10 @@ public class LevelManager : MonoBehaviour
 
     public void Load()
     {
-        
+        foreach(GameObject currentObject in resetObjects)
+        {
+            currentObject.GetComponent<Door>()?.Load();
+            currentObject.GetComponent<Button>()?.Load();
+        }
     }
 }
